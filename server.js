@@ -186,9 +186,10 @@ app.get("/api/pdf", autenticar, async (req, res) => {
         res.status(500).json({erro: "Erro de comunicacao com o python"})
     }
 })
+const PORT = process.env.PORT || 3000;
 
 criarBanco()
-.then(() => app.listen(3000, "0.0.0.0", () => console.log("Servidor rodando")))
+.then(() => app.listen(PORT, "0.0.0.0", () => console.log("Servidor rodando")))
 .catch((erro) => { console.log(erro)
     process.exit(1)
 })
